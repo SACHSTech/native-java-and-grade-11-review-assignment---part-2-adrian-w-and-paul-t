@@ -50,7 +50,11 @@ public class Utility {
      }
 
      /**
-      * Array 1 One Dimensional
+      *Array 1 One Dimensional
+      *For each multiple of 10 in the given array, 
+      *change all the values following it to be that multiple of
+      *10, until encountering another multiple of 10.
+      *So {2, 10, 3, 4, 20, 5} yields {2, 10, 10, 10, 20, 20}.
       *@author A. Wong
       */
 
@@ -59,7 +63,7 @@ public class Utility {
         int currentMultiple = 0;
         boolean hasReachedFirst = false;
 
-        for (int counter = 0; counter <= nums.length; counter++){
+        for (int counter = 0; counter < nums.length; counter++){
 
             if (nums[counter] % 10 == 0){
 
@@ -78,6 +82,17 @@ public class Utility {
         }
 
         return nums;
+
+      }
+
+      /**
+       * Array 3 One Dimensional Two Loops
+       * @author A. Wong
+       */
+      public static boolean linearIn(int[] outer, int[] inner){
+
+        
+
 
       }
 
