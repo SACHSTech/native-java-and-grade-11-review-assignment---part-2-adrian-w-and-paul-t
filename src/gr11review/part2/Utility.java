@@ -91,8 +91,42 @@ public class Utility {
        */
       public static boolean linearIn(int[] outer, int[] inner){
 
-        
+        if (inner.length == 0){
 
+            return true;
+
+        }
+
+
+        int innerIndex = 0;
+        boolean ifEqual;
+
+        for (int counter = 0; counter < outer.length; counter++){
+
+            if(inner[innerIndex] < outer[counter]){
+
+                return false;
+
+
+            }
+            else if (inner[innerIndex] == outer[counter]){
+
+                innerIndex++;
+                counter = 0;
+
+                if (innerIndex == inner.length){
+
+                    return true;
+
+                }
+
+            }
+
+            
+
+        }
+
+        return false;
 
       }
 
