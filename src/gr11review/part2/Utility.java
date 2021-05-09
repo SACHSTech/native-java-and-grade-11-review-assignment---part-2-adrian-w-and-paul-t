@@ -11,6 +11,7 @@ public class Utility {
      */
     public static String zipZap(String methodInput){
 
+        //Replaces all zaps, zips, and zops with zp
         methodInput = methodInput.replaceAll("zap","zp").replaceAll("zip","zp").replaceAll("zop","zp");
 
         return methodInput;
@@ -24,12 +25,15 @@ public class Utility {
 
      public static String longestWord(String filenametxt) throws IOException{
 
+        //Sets up a file scanner
         File myObj = new File(filenametxt);
         Scanner myReader = new Scanner(myObj);
 
         String longestWord = "";
         int length = 0;
 
+        //While the file has more lines checks if the next word is longer
+        //If it is it becomes the new set word
         while (myReader.hasNextLine()){
 
                 String tempString = myReader.nextLine();
@@ -63,6 +67,9 @@ public class Utility {
         int currentMultiple = 0;
         boolean hasReachedFirst = false;
 
+        //Checks if the number is divisible by 10 without remainders
+        //Replaces all following numbers with multiple of 10
+        //If there is a new multiple of 10, it takes that number instead
         for (int counter = 0; counter < nums.length; counter++){
 
             if (nums[counter] % 10 == 0){
@@ -94,16 +101,18 @@ public class Utility {
        */
       public static boolean linearIn(int[] outer, int[] inner){
 
+        //If the array is empty then it is always true
         if (inner.length == 0){
 
             return true;
 
         }
 
-
         int innerIndex = 0;
         boolean ifEqual;
 
+        //Checks if the outer array number is bigger than the inner array number
+        //If bigger return false
         for (int counter = 0; counter < outer.length; counter++){
 
             if(inner[innerIndex] < outer[counter]){
@@ -112,6 +121,8 @@ public class Utility {
 
 
             }
+            //If equal add to counter
+            //When counter equals array length return true
             else if (inner[innerIndex] == outer[counter]){
 
                 innerIndex++;
@@ -141,8 +152,10 @@ public class Utility {
 
        public static void pascalTri(int i, int j) throws IOException{
 
+        //Sets up an array
         int[][] pascalArr = new int[i][j];
 
+        //Sets up a file printer
         File myObj = new File("pascalOut.txt");
         FileWriter myWriter = new FileWriter("pascalOut.txt");
         
@@ -152,17 +165,20 @@ public class Utility {
 
             for (int columnIndex = 0; columnIndex < j; columnIndex++){
 
+                //If the row or index is 0 set number to 1
                 if (rowIndex == 0 || columnIndex == 0){
 
                     pascalArr[rowIndex][columnIndex] = 1;
 
                 }
+                //Adds the number above and the number to the left
                 else{
 
                     pascalArr[rowIndex][columnIndex] = pascalArr[rowIndex - 1][columnIndex] + pascalArr[rowIndex][columnIndex - 1]; 
 
                 }
 
+                //If it is not the right most column, include a comma
                 if (columnIndex < (j - 1)){
 
                     myWriter.write(pascalArr[rowIndex][columnIndex] + ",");
@@ -171,6 +187,7 @@ public class Utility {
 
             }
 
+            //If it is the right most column make a new line
             myWriter.write(pascalArr[rowIndex][j - 1] + "\n");
             
 
