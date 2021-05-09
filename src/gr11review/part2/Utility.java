@@ -29,21 +29,27 @@ public class Utility {
     return returnSum;
   }
 
-  public static String alphaWord(String filenametxt) {
-    BufferedReader keyboard = new BufferedReader(new FileReader(filenametxt));
+  public static String alphaWord(String filenametxt)throws IOException {
 
-    String alphabetical;
-    alphabetical = keyboard.readLine();
-    String fileLine = "";
+    String alphabetical = "";
 
-    //reads file until end
-    while (fileLine != "null") {
-      fileLine = keyboard.readLine();
+    try {
+      BufferedReader keyboard = new BufferedReader(new FileReader(filenametxt));
+      
+      String fileLine = "";
+      alphabetical = keyboard.readLine();
 
-      //checks if new word is alphabetically first
-      if (fileLine != "null" && alphabetical.compareTo(fileLine) > 0) {
-        alphabetical = fileLine;
+      while(fileLine != "null") {
+        fileLine = keyboard.readLine();
+        if (fileLine != "null" && alphabetical.compareTo(fileLine) > 0) {
+          alphabetical = fileLine;
+        }
       }
+
+      keyboard.close();
+
+    } catch(Exception e) {
+      System.out.println("Error.");
     }
 
     return alphabetical;
@@ -85,5 +91,38 @@ public class Utility {
 
     return false;
 	}
-  
+
+  public static void diagonal(int n)throws IOException {
+
+    try {
+      PrintWriter theout = new PrintWriter(new FileWriter("src/grd11review/part2/diagonalOut.txt", true));
+
+      String line = "";
+
+      //i and j are row and column indexes
+      for (int i = 0; i < n; i++) {
+        line = "";
+
+        //add 0, 1, 2 to line according to graph position
+        for (int j = 0; j < n; j++) {
+          if (i + j == n - 1) {
+            line += "1";
+          } else if (i + j > n - 1) {
+            line += "2";
+          } else {
+            line += "0";
+          }
+
+          //add comma to number if not at the end
+          if (j != n - 1) {
+            line += ",";
+          }
+        }
+        theout.println(line);
+      }
+      theout.close();
+    } catch(Exception e) {
+      System.out.println("error.");
+    }
+  }
 }
