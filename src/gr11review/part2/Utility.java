@@ -1,6 +1,6 @@
 package gr11review.part2;
 import java.io.*;
-import java.util.Scanner;
+import java.util.*;
 
 public class Utility {
 
@@ -87,6 +87,9 @@ public class Utility {
 
       /**
        * Array 3 One Dimensional Two Loops
+       * Checks to see if the outer array
+       * Has the numbers of the inner array
+       * Assuming both arrays are sorted by number size
        * @author A. Wong
        */
       public static boolean linearIn(int[] outer, int[] inner){
@@ -129,5 +132,52 @@ public class Utility {
         return false;
 
       }
+
+      /**
+       * Array 5 - Two Dimensional
+       * Prints a pascal's traingle with a size based on the inputed numbers
+       * @author A. Wong
+       */
+
+       public static void pascalTri(int i, int j) throws IOException{
+
+        int[][] pascalArr = new int[i][j];
+
+        File myObj = new File("pascalOut.txt");
+        FileWriter myWriter = new FileWriter("pascalOut.txt");
+        
+        myObj.createNewFile();
+
+        for (int rowIndex = 0; rowIndex < i; rowIndex++){
+
+            for (int columnIndex = 0; columnIndex < j; columnIndex++){
+
+                if (rowIndex == 0 || columnIndex == 0){
+
+                    pascalArr[rowIndex][columnIndex] = 1;
+
+                }
+                else{
+
+                    pascalArr[rowIndex][columnIndex] = pascalArr[rowIndex - 1][columnIndex] + pascalArr[rowIndex][columnIndex - 1]; 
+
+                }
+
+                if (columnIndex < (j - 1)){
+
+                    myWriter.write(pascalArr[rowIndex][columnIndex] + ",");
+
+                }
+
+            }
+
+            myWriter.write(pascalArr[rowIndex][j - 1] + "\n");
+            
+
+        }
+
+        myWriter.close();
+
+       }
 
 }
