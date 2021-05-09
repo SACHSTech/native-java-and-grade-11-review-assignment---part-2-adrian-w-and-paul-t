@@ -317,7 +317,7 @@ public class Utility {
   public static void diagonal(int n)throws IOException {
 
     try {
-      PrintWriter theout = new PrintWriter(new FileWriter("src/grd11review/part2/diagonalOut.txt", true));
+      PrintWriter theout = new PrintWriter(new FileWriter("diagonalOut.txt", true));
 
       String line = "";
 

@@ -5,7 +5,7 @@ import java.io.*;
 public class Main {
   public static void main(String[] args)throws IOException {
 
-    System.out.println(Utility.sumNumbers("872xx2x4 22"));
+    System.out.println(Utility.sumNumbers("xxx"));
     
     System.out.println(Utility.alphaWord("src/gr11review/test2/Review2_3Test_3.txt"));
 
