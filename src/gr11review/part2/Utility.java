@@ -4,16 +4,23 @@ import java.io.*;
 
 public class Utility {
 
+  /**
+     * Methods 2
+     * Returns the sum of all distinct numbers in a string
+     * @author P. Tran
+     */
   public static int sumNumbers(String str) {
-
+    
     char letter;
     int strLength = str.length();
     int returnSum = 0;
     int intermediate = 0;
 
+    //checks each letter
     for (int i = 0; i < strLength; i++) {
       letter = str.charAt(i);
 
+      //if digit, multiply previous digit by 10 and add on
       if (Character.isDigit(letter)) {
         intermediate = intermediate * 10 + Integer.parseInt(String.valueOf(letter));
       } else {
@@ -29,6 +36,11 @@ public class Utility {
     return returnSum;
   }
 
+  /**
+     * File IO 2
+     * Returns the alphabetically first word in a text file
+     * @author P. Tran
+     */
   public static String alphaWord(String filenametxt)throws IOException {
 
     String alphabetical = "";
@@ -55,6 +67,11 @@ public class Utility {
     return alphabetical;
   }
 
+  /**
+     * Array 2
+     * All "alone" elements take on the greater of the two values to the left and right of it
+     * @author P. Tran
+     */
   public static int[] notAlone(int[] nums, int value) {
 
     //Checks if each element of the array with the value is alone
@@ -69,6 +86,11 @@ public class Utility {
     return nums;
   }
 
+  /**
+     * Array 4
+     * Returns true if an integer array can be split so that the sum of the numbers on both sides are equal
+     * @author P. Tran
+     */
   public static boolean canBalance(int[] nums) {
     int arrayLength = nums.length;
 
@@ -92,6 +114,11 @@ public class Utility {
     return false;
 	}
 
+  /**
+     * Array 6
+     * Prints onto a text file a two dimensional array of size n
+     * @author P. Tran
+     */
   public static void diagonal(int n)throws IOException {
 
     try {
@@ -103,7 +130,7 @@ public class Utility {
       for (int i = 0; i < n; i++) {
         line = "";
 
-        //add 0, 1, 2 to line according to graph position
+        //add 0, 1, 2 to line according to array position
         for (int j = 0; j < n; j++) {
           if (i + j == n - 1) {
             line += "1";
