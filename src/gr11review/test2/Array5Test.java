@@ -6,10 +6,13 @@ import org.junit.jupiter.api.Test;
 
 import gr11review.part2.Utility;
 import java.io.*;
+import java.nio.file.Paths;
 
 public class Array5Test {
 
-    private final String absPath = "/Users/eric/ICS4U-native-gr11review-part2/src/gr11review/part2/";
+    //private final String absPath = "/Users/eric/ICS4U-native-gr11review-part2/src/gr11review/part2/";
+    private String filePath = new File("").getAbsolutePath();
+    private final String absPath = filePath+ "/";
 
 
     String getResultString()throws IOException{

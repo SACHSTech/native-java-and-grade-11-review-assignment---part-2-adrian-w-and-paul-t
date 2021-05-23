@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch Main",
+            "request": "launch",
+            "mainClass": "gr11review.part2.Main",
+            "projectName": "native-java-and-grade-11-review-assignment---part-2-adrian-w-and-paul-t_e76e7478"
+        },
+        {
+            "type": "java",
             "name": "Debug (Launch) - Current File",
             "request": "launch",
             "mainClass": "${file}"
